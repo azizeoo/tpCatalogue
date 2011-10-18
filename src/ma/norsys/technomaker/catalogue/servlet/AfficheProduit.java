@@ -32,8 +32,8 @@ public class AfficheProduit extends HttpServlet {
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
 		
-		//recuperation d'objet volu
 		Catalogue catalogue = Catalogue.getInstance();
+		//recuperation d'objet volu par id
 		Produit produit = catalogue.getListProduit().get(request.getParameter("id"));
 		
 		out.println("<head><link rel='stylesheet' type='text/css' href='"+request.getContextPath() + "/css/styles.css'></head>");

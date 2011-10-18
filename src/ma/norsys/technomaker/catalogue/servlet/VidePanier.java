@@ -27,7 +27,9 @@ public class VidePanier extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//on recherche un cookie
+		//	- on recherche dans les cookies
+		//	- et on supprime tous les cookies qui commencent par 'panier_'
+		
 		Cookie [] coockies = request.getCookies();
 		for (int i = 0; i < coockies.length; i++) {
 			Cookie unCookie = coockies[i];
@@ -36,6 +38,7 @@ public class VidePanier extends HttpServlet {
 				response.addCookie(unCookie);
 			}
 		}
+		//	-pour rediriger vers la JSP 'AfficheCatalogueJSP' 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("AfficheCatalogueJSP");
 		dispatcher.forward(request, response);
 	}

@@ -29,6 +29,8 @@ public class AfficheCatalogueJSTL extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/afficheCatalogueJSP.jsp");
+		//	- On recupere une instance du catalogue et on l'ajoute
+		//	- au scope request pour le recupere dans la JSP 'afficheCatalogueJSP.jsp'
 		Catalogue catalogue = Catalogue.getInstance();
 		request.setAttribute("catalogue", catalogue);
 		dispatcher.forward(request, response);

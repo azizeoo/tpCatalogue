@@ -27,11 +27,14 @@ public class AjouteAuPanier extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Cookie monCookie = new Cookie("panier_" + request.getParameter("id"), request.getParameter("id"));
-		monCookie.setMaxAge(6000);
-
 		
-		//on recherche un cookie
+		Cookie monCookie = new Cookie("panier_" + request.getParameter("id"), request.getParameter("id"));
+		//	- l'age du cookie en secondes
+		monCookie.setMaxAge(6000);
+		
+		//	- on recherche si un cookie exite déjà dans les cookies 
+		//	- si il n'existe pas on l'ajoute dans les cookies
+		// 	- puis on redirige vers la JSP pour afficher le catalogue
 		Cookie [] coockies = request.getCookies();
 		boolean existe = false;
 		for (int i = 0; i < coockies.length; i++) {
@@ -42,6 +45,7 @@ public class AjouteAuPanier extends HttpServlet {
 			}
 		}
 		
+		//	- On teste si le cookie n'existe pas
 		if(!existe){
 			response.addCookie(monCookie);
 		}
