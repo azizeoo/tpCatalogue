@@ -1,4 +1,4 @@
-
+<%@ include file="taglib.jsp"%>
 <%@page import="java.util.Map"%>
 <%@page import="ma.norsys.technomaker.catalogue.bean.Produit"%>
 <%@page import="ma.norsys.technomaker.catalogue.bean.Catalogue"%>
@@ -11,7 +11,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel=stylesheet type="text/css"
 	href="<%=request.getContextPath() %>/css/styles.css" />
-<title>Affiche catalgue JSP</title>
+<title><fmt:message key="message.titre.afficheCatalogueJSP" /></title>
 </head>
 <body>
 	<jsp:include page="/jsp/header.jsp"></jsp:include>

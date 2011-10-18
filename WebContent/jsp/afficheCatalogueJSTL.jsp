@@ -1,6 +1,6 @@
+<%@ include file="taglib.jsp"%>
 <%@page import="ma.norsys.technomaker.catalogue.bean.Produit"%>
 <%@page import="ma.norsys.technomaker.catalogue.bean.Catalogue"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -9,13 +9,13 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel=stylesheet type="text/css"
 	href="<%=request.getContextPath() %>/css/styles.css" />
-<title>Affiche panier JSTL</title>
+<title><fmt:message key="message.titre.afficheCatalogueJSTL" /></title>
 </head>
 <body>
 
 	<jsp:include page="/jsp/header.jsp"></jsp:include>
 	
-	<div class="titre">Panier</div>
+	<div class="titre"><fmt:message key="message.div.panier" /></div>
 	
 <!-- 	- RECUPERATION DES PAIRES (String,Produit) 
 		- POUR AFFICHER LES INFORMATIONS SUR UN PRODUIT -->
@@ -45,7 +45,7 @@
 
 <!-- 		- TESTE POUR SAVOIR SI LE PANIER EST VIDE OU PAS -->
 	<c:if test="${empty requestScope.panierCatalogue.listProduit}">
-		<p>Aucun produit dans le panier</p>
+		<p><fmt:message key="message.p.aucunProduit" /></p>
 	</c:if>
 </body>
 </html>
